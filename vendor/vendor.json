@@ -1,0 +1,13 @@
+{
+	"comment": "A sample go app with deps",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "zPbYebXh2asbsqtyCMTHZhBe0aI=",
+			"path": "github.com/guptarohit/asciigraph",
+			"revision": "1d2eb22151a1994d43c4a9f748c96c2766bc0d65",
+			"revisionTime": "2018-07-23T12:46:06Z"
+		}
+	],
+	"rootPath": "myapp"
+}
