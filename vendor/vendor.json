@@ -3,10 +3,16 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "zPbYebXh2asbsqtyCMTHZhBe0aI=",
-			"path": "github.com/guptarohit/asciigraph",
-			"revision": "1d2eb22151a1994d43c4a9f748c96c2766bc0d65",
-			"revisionTime": "2018-07-23T12:46:06Z"
+			"checksumSHA1": "F7vsuKOVSMnFSi90odRxfhBEBeA=",
+			"path": "github.com/lib/pq",
+			"revision": "d34b9ff171c21ad295489235aec8b6626023cd04",
+			"revisionTime": "2018-03-27T07:18:24Z"
+		},
+		{
+			"checksumSHA1": "ATnwV0POluBNQEMjPdylodz0oK0=",
+			"path": "github.com/lib/pq/oid",
+			"revision": "d34b9ff171c21ad295489235aec8b6626023cd04",
+			"revisionTime": "2018-03-27T07:18:24Z"
 		}
 	],
 	"rootPath": "myapp"

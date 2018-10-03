@@ -1,16 +1,41 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
+	"log"
 
-	"github.com/guptarohit/asciigraph"
+	_ "github.com/lib/pq"
+)
+
+const (
+	dbUser     = "root"
+	dbPassword = "secret"
+	dbName     = "myapp"
 )
 
 func main() {
-	data := []float64{3, 4, 9, 6, 2, 4, 5, 8, 5, 10, 2, 7, 2, 5, 6}
-	graph := asciigraph.Plot(data,
-		asciigraph.Width(50),
-		asciigraph.Height(10))
+	dbInfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable",
+		dbUser, dbPassword, dbName)
+	db, err := sql.Open("postgres", dbInfo)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	fmt.Println(graph)
+	rows, err := db.Query("SELECT * FROM users")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var (
+			id   int
+			name string
+		)
+
+		rows.Scan(&id, &name)
+
+		log.Printf("%d: %s", id, name)
+	}
 }
