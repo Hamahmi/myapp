@@ -21,7 +21,7 @@ RUN govendor build -o /go/src/app/myapp
 #------------------------------------------------#
 
 # Smallest container image
-FROM scratch
+FROM alpine
 
 # Copy built executable from base image to here
 COPY --from=builder /go/src/app/myapp /
