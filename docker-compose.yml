@@ -1,0 +1,18 @@
+version: '2.1'
+services:
+  app:
+    build: .
+    environment:
+      MYAPP_DATABASE_HOST: db
+      MYAPP_WEB_PORT: 8080
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - 3000:8080
+  db:
+    image: healthcheck/postgres:alpine
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: myapp
