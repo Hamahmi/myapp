@@ -8,6 +8,8 @@ RUN apk --no-cache -U add git
 # Install package manager
 RUN go get -u github.com/kardianos/govendor
 
+RUN go get github.com/go-redis/redis
+
 # Copy app files into container
 WORKDIR /go/src/app
 COPY . .
