@@ -5,8 +5,12 @@ services:
     environment:
       MYAPP_DATABASE_HOST: db
       MYAPP_WEB_PORT: 8080
+      REDISHOST: localhost
+      REDISPORT: 6379
     depends_on:
       db:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     ports:
       - 3000:8080
@@ -16,3 +20,5 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: secret
       POSTGRES_DB: myapp
+  redis:
+    image: healthcheck/redis:alpine
